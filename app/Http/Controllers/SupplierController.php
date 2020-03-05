@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Supplier;
-use DB; 
- 
+use DB;
+use Illuminate\Support\Facades\Input;
 class SupplierController extends Controller
 {
-    
+
     public function index(){
     	return view('admin.supplier.add-supplier');
     }
@@ -55,10 +55,14 @@ class SupplierController extends Controller
     	return view('admin.supplier.edit-supplier',['supplier'=>$supplier]);
     }
     public function searchSupplier(){
+		$search_supplier = Input::get ('search_supplier');
+		$supplier        = Supplier::where('name','LIKE','%'. $search_supplier .'%')->orWhere('email','LIKE','%'.$search_supplier.'%')->orWhere('company_type','LIKE','%'.$search_supplier.'%')->get();
+		if(count($supplier) > 0)
+			return view('admin.supplier.search-supplier')->withDetails($supplier)->withQuery( $search_supplier);
+		else {
+			return redirect('/supplier/manage-supplier')->withMessage('No Supplier Details found. Try to search again !');
 
-    	$query=request('search_text');
-        $suppliers = Supplier::where('name', 'LIKE', '%' . $query . '%')->paginate(1);;
-        return view('admin.supplier.manage-supplier',compact('suppliers'));
+		}
     }
 
     public function updateSupplierInfo(Request $request){

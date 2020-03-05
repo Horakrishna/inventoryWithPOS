@@ -20,8 +20,21 @@
           </div>
         </div>
       </li>
-      
+
        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+         <i class="fa fa-address-card"></i>
+          <span>Customer</span>
+        </a>
+        <div id="collapse6" class="collapse" aria-labelledby="headingsix" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Customer:</h6>
+            <a class="collapse-item" href="{{ route('add-customer') }}">Add Customer</a>
+            <a class="collapse-item" href="{{ route('manage-customer')}}">Manage Customer</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
          <i class="fa fa-address-card"></i>
           <span>Employee</span>
@@ -34,7 +47,6 @@
           </div>
         </div>
       </li>
-      
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">

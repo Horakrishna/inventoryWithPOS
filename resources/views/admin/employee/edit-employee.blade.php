@@ -9,14 +9,14 @@
         <div class="card-header">
             @if(Session::has('message'))
             <h3 class="card-title text-center text-success">{{ session::get('message')}}</h3>
-            @else 
+            @else
             <h3 class="card-title font-weight-bold text-center text-success">Edit Employee Form</h3>
             @endif
         </div>
         {{ Form::open(['route'=>'update-employee','method'=>'post','class'=>'form-horizontal','enctype'=>'multipart/form-data']) }}
-        
+
             <div class="row clearfix">
-                <div class="col-sm-6"> 
+                <div class="col-sm-6">
                     {{ Form::label('emp_name','Employee Name') }}
                     <div class="form-group">
                         <div class="form-line">
@@ -90,8 +90,8 @@
                         </div>
                     </div>
                 </div>
-         
-       
+
+
         </div>
         <div class="card-footer">
             <div class="form-group row">

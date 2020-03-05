@@ -12,27 +12,29 @@
                       <div class="col-sm-4">
                          <a href="{{ route('add-supplier')}}" class="btn btn-success text-left">Add Supplier Info</a>
                       </div>
-                      <div class="col-sm-8">
+                      <div class="col-sm-4">
                         @if(Session::has('message'))
                           <h3 class="text-success text-center">{{ Session::get('message') }}</h3>
                         @else
                          <h3 class="m-0 font-weight-bold text-primary text-left">View Supplier Details</h3>
                          @endif
                       </div>
+                      <div class="col-sm-4">
+                        {{ Form::open(['route'=>'search-supplier','method'=>'post','role'=>'search'])}}
+                          <div class="input-group">
+                              <input type="text" class="form-control" name="search_supplier"
+                                  placeholder="Search Supplier"> <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-default">
+                                      <span class="fa fa-search"></span>
+                                  </button>
+                              </span>
+                          </div>
+                      {{ Form::close() }}
+                      </div>
                     </div>
-                  
+
                   </div>
-                <div class="card-body">
-                  <div class="row">
-                      <div class="col-auto mr-auto"></div>
-                        <div class="col-auto"> 
-                          <form action="{{ route('search-supplier')}}" method="get">
-                            {{ csrf_field() }}
-                            <input  name="search_text" type="text"/>
-                                  <input type="submit"/>
-                          </form>
-                        </div>
-                  </div>
+
                    <div class="table-responsive">
                          <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
@@ -67,7 +69,7 @@
                                         <a href="{{ route('view-supplier',['id'=>$supplier->id]) }}" class="btn btn-success btn-xs"  title="View Supplier">
                                             <span class="fa fa-eye"></span>
                                         </a>
-                                        <a href="#"class="btn delete-btn btn-danger btn-xs" id="{{$supplier->id}}" onclick="   
+                                        <a href="#"class="btn delete-btn btn-danger btn-xs" id="{{$supplier->id}}" onclick="
                                               event.preventDefault();
                                                 var check =confirm('Are You sure to delete Supplier Info !!!');
                                                   if (check) {
@@ -82,7 +84,7 @@
                                          </form>
                                     </td>
                                 </tr>
-                          
+
                             </tbody>
                             @endforeach
 

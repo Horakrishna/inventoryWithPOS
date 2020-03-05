@@ -4,14 +4,14 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |------------      --------------------------------------------------------------
-|  
+|
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', function () { 
+Route::get('/', function () {
     return view('welcome');
 });
 //Admin Route
@@ -19,7 +19,36 @@ Route::get('/', function () {
 /*=========================
 		Admin Route
 ===========================*/
-
+/*=========================
+	Customer Route start
+===========================*/
+Route::get('/customer/add-customer',[
+	'uses'  =>'CustomerController@index',
+	'as'    =>'add-customer'
+]);
+Route::get('/customer/manage-customer',[
+	'uses'  =>'CustomerController@manageCustomer',
+	'as'    =>'manage-customer'
+]);
+Route::post('/customer/new-customer',[
+	'uses' =>'CustomerController@saveCustomerInfo',
+	'as'   =>'new-customer'
+]);
+Route::get('/customer/edit-customer/{id}',[
+	'uses' =>'CustomerController@editCustomer',
+	'as'   =>'edit-customer'
+]);
+Route::post('/customer/update-customer',[
+	'uses' =>'CustomerController@updateCustomer',
+	'as'   =>'update-customer'
+]);
+Route::post('/customer/delete-customer',[
+	'uses' =>'CustomerController@deleteCustomer',
+	'as'   =>'delete-customer'
+]);
+/*=========================
+	Customer Route End
+===========================*/
 /*=========================
 	supplier Route start
 ===========================*/
@@ -39,7 +68,7 @@ Route::post('/supplier/new-supplier',[
 	'uses' =>'SupplierController@saveSupplierInfo',
 	'as'   =>'new-supplier'
 ]);
-Route::get('/supplier/search-supplier',[
+Route::post('/supplier/search-supplier',[
 	'uses'=>'SupplierController@searchSupplier',
 	'as'  =>'search-supplier'
 ]);
@@ -76,6 +105,23 @@ Route::post('/employee/new-employee',[
 	'uses' =>'EmployeeController@saveEmployeeInfo',
 	'as'   =>'new-employee'
 ]);
+Route::post('/employee/update-employee',[
+	'uses' =>'EmployeeController@updateEmployeeInfo',
+	'as'   =>'update-employee'
+]);
+Route::post('/employee/search-employee',[
+	'uses'=>'EmployeeController@searchEmployee',
+	'as'  =>'search-employee'
+]);
+Route::get('/employee/view-employee/{id}/{name}',[
+	'uses'=>'EmployeeController@viewEmployeeInfo',
+	'as'  =>'view-employee'
+]);
+Route::post('/employee/delete-employee',[
+	'uses'=>'EmployeeController@deleteEmployeeInfo',
+	'as'  =>'delete-employee'
+]);
+
 /*=========================
 	Employee Route start
 ===========================*/
