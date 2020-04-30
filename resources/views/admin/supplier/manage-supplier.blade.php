@@ -20,7 +20,7 @@
                          @endif
                       </div>
                       <div class="col-sm-4">
-                        {{ Form::open(['route'=>'search-supplier','method'=>'post','role'=>'search'])}}
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search Customer Data" />
                           <div class="input-group">
                               <input type="text" class="form-control" name="search_supplier"
                                   placeholder="Search Supplier"> <span class="input-group-btn">
@@ -29,7 +29,7 @@
                                   </button>
                               </span>
                           </div>
-                      {{ Form::close() }}
+                    
                       </div>
                     </div>
 
@@ -98,5 +98,30 @@
             </div>
         </div>
     </div>
+<script>
+      $(document).ready(function(){
 
+      fetch_customer_data();
+
+      function fetch_customer_data(query = '')
+      {
+        $.ajax({
+        url:"{{ route('live_search.action') }}",
+        method:'GET',
+        data:{query:query},
+        dataType:'json',
+        success:function(data)
+        {
+          $('tbody').html(data.table_data);
+          $('#total_records').text(data.total_data);
+        }
+        })
+      }
+
+      $(document).on('keyup', '#search', function(){
+        var query = $(this).val();
+        fetch_customer_data(query);
+      });
+      });
+</script>
 @endsection

@@ -48,20 +48,20 @@
         </div>
       </li>
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-        <i class="fab fa-product-hunt"></i>
-          <span>Product</span>
-        </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Product:</h6>
-              <a class="collapse-item" href="#">Add Product</a>
-              <a class="collapse-item" href="#">Manage Product</a>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fab fa-product-hunt"></i>
+            <span>Product</span>
+          </a>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Product:</h6>
+                <a class="collapse-item" href="">Add Product</a>
+                <a class="collapse-item" href="">Manage Product</a>
 
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <i class="fas fa-sliders-h"></i>

@@ -46,6 +46,15 @@ Route::post('/customer/delete-customer',[
 	'uses' =>'CustomerController@deleteCustomer',
 	'as'   =>'delete-customer'
 ]);
+Route::post('/customer/import-customer',[
+	'uses' =>'CustomerController@import_customer',
+	'as'   =>'import-customer'
+]);
+
+// Route::get('/customer/export-customer/{type}',[
+// 	'uses' =>'CustomerController@customerExport',
+// 	'as'   =>'export-customer'
+// ]);
 /*=========================
 	Customer Route End
 ===========================*/
@@ -68,11 +77,15 @@ Route::post('/supplier/new-supplier',[
 	'uses' =>'SupplierController@saveSupplierInfo',
 	'as'   =>'new-supplier'
 ]);
-Route::post('/supplier/search-supplier',[
-	'uses'=>'SupplierController@searchSupplier',
-	'as'  =>'search-supplier'
-]);
+// Route::post('/supplier/search-supplier',[
+// 	'uses'=>'SupplierController@searchSupplier',
+// 	'as'  =>'search-supplier'
+// ]);
 
+Route::get('/supplier/action',[
+	'uses'=>'SupplierController@action',
+	'as'  =>'live_search.action'
+]);
 Route::get('/supplier/edit-supplier/{id}',[
 	'uses'=>'SupplierController@editSupplierInfo',
 	'as'  =>'edit-supplier'
@@ -132,3 +145,5 @@ Route::post('/employee/delete-employee',[
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

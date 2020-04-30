@@ -10,15 +10,15 @@
                   <div class="card-header py-3">
                      <div class="row">
                       <div class="col-sm-4">
-                         <a href="" class="btn btn-success text-left">Add New Customer</a>
-                         <form action="" enctype="multipart/form-data" method="post">
-                            @csrf
-                            <input type="file" name="file">
-                            <button class="btn btn-primary" type="submit">Upload</button>
-                        </form>
+                         
+                           <form action="{{ route('import-customer') }}" enctype="multipart/form-data" method="post">
+                              @csrf
+                              <input type="file" name="file">
+                              <button class="btn btn-primary" type="submit">Import Data</button>
+                          </form>
                       </div>
                       <div class="col-sm-4">
-                        @if(Session::has('message'))
+                        @if(Session::has('message')) 
                         <h3 class="text-success font-weight-bold text-center">{{ Session::get('message') }}</h3>
                         @else
                         <h3 class="m-0 font-weight-bold text-primary text-left">View Customer Details</h3>
@@ -92,8 +92,13 @@
                         </table>
 
                         <div class="row">
-                          <div class="col-auto mr-auto"></div>
-                          <div class="col-auto">{{ $customers->links()}}</div>
+                         
+                            <div class="col-sm-4">
+                                 <a href="" class="btn btn-success">Export to Excel</a>
+                            </div>
+
+                       </div>
+                          <div class="col-auto col-sm-4 offset-4">{{ $customers->links()}}</div>
                       </div>
                     </div>
                 </div>
